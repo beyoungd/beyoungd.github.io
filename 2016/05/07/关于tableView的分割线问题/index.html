@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://beyoungd.github.io/2016/05/07/关于tableView的分割线问题/index.html">
 <meta property="og:site_name" content="beyoungd的博客">
 <meta property="og:description" content="摘要:">
-<meta property="og:updated_time" content="2016-09-12T10:39:56.000Z">
+<meta property="og:updated_time" content="2016-09-12T10:54:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于tableView的问题">
 <meta name="twitter:description" content="摘要:">
@@ -304,6 +304,7 @@ if ([self.discussTableView respondsToSelector:@selector(setLayoutMargins:)]) {
     [self.discussTableView setLayoutMargins:UIEdgeInsetsZero];
 
 }
+`
 </code></pre><h2 id="在tableView的代理方法中加入以下代码"><a href="#在tableView的代理方法中加入以下代码" class="headerlink" title="在tableView的代理方法中加入以下代码"></a>在tableView的代理方法中加入以下代码</h2><p>`- (void)tableView:(UITableView <em>)tableView willDisplayCell:(UITableViewCell </em>)cell forRowAtIndexPath:(NSIndexPath *)indexPath</p>
 <p>{</p>
 <p>if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {</p>
