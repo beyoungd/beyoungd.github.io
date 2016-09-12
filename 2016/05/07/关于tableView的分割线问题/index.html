@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://beyoungd.github.io/2016/05/07/关于tableView的分割线问题/index.html">
 <meta property="og:site_name" content="beyoungd的博客">
 <meta property="og:description" content="摘要:">
-<meta property="og:updated_time" content="2016-09-12T10:54:02.000Z">
+<meta property="og:updated_time" content="2016-09-12T11:13:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于tableView的问题">
 <meta name="twitter:description" content="摘要:">
@@ -291,10 +291,7 @@
 
       
         <p>摘要:<br><a id="more"></a><br>正文:</p>
-<h2 id="tableView-分割线"><a href="#tableView-分割线" class="headerlink" title="tableView 分割线"></a>tableView 分割线</h2><ul>
-<li><h4 id="当系统适配到iOS7的时候-cell的分隔线短了15像素-这是因为在iOS7中-UITableViewCell左侧会有默认的15像素的空白-这时候-设置setSeparatorInsets-UIEdgeInsetsZero-就能将空白去掉-但是在iOS8中-设置setSeparatorInsets-UIEdgeInsetsZero就不起作用了-解决方法如下-在viewDidLoad-中加入以下代码"><a href="#当系统适配到iOS7的时候-cell的分隔线短了15像素-这是因为在iOS7中-UITableViewCell左侧会有默认的15像素的空白-这时候-设置setSeparatorInsets-UIEdgeInsetsZero-就能将空白去掉-但是在iOS8中-设置setSeparatorInsets-UIEdgeInsetsZero就不起作用了-解决方法如下-在viewDidLoad-中加入以下代码" class="headerlink" title="当系统适配到iOS7的时候,cell的分隔线短了15像素,这是因为在iOS7中,UITableViewCell左侧会有默认的15像素的空白,这时候,设置setSeparatorInsets:UIEdgeInsetsZero 就能将空白去掉.但是在iOS8中,设置setSeparatorInsets:UIEdgeInsetsZero就不起作用了,解决方法如下:在viewDidLoad 中加入以下代码"></a>当系统适配到iOS7的时候,cell的分隔线短了15像素,这是因为在iOS7中,UITableViewCell左侧会有默认的15像素的空白,这时候,设置setSeparatorInsets:UIEdgeInsetsZero 就能将空白去掉.但是在iOS8中,设置<em>setSeparatorInsets:UIEdgeInsetsZero</em>就不起作用了,解决方法如下:在viewDidLoad 中加入以下代码</h4></li>
-</ul>
-<p>`if ([self.discussTableView respondsToSelector:@selector(setSeparatorInset:)]) {</p>
+<h2 id="tableView-分割线"><a href="#tableView-分割线" class="headerlink" title="tableView 分割线"></a>tableView 分割线</h2><h4 id="当系统适配到iOS7的时候-cell的分隔线短了15像素-这是因为在iOS7中-UITableViewCell左侧会有默认的15像素的空白-这时候-设置setSeparatorInsets-UIEdgeInsetsZero-就能将空白去掉-但是在iOS8中-设置setSeparatorInsets-UIEdgeInsetsZero就不起作用了-解决方法如下-在viewDidLoad-中加入以下代码"><a href="#当系统适配到iOS7的时候-cell的分隔线短了15像素-这是因为在iOS7中-UITableViewCell左侧会有默认的15像素的空白-这时候-设置setSeparatorInsets-UIEdgeInsetsZero-就能将空白去掉-但是在iOS8中-设置setSeparatorInsets-UIEdgeInsetsZero就不起作用了-解决方法如下-在viewDidLoad-中加入以下代码" class="headerlink" title="当系统适配到iOS7的时候,cell的分隔线短了15像素,这是因为在iOS7中,UITableViewCell左侧会有默认的15像素的空白,这时候,设置setSeparatorInsets:UIEdgeInsetsZero 就能将空白去掉.但是在iOS8中,设置setSeparatorInsets:UIEdgeInsetsZero就不起作用了,解决方法如下:在viewDidLoad 中加入以下代码"></a>当系统适配到iOS7的时候,cell的分隔线短了15像素,这是因为在iOS7中,UITableViewCell左侧会有默认的15像素的空白,这时候,设置setSeparatorInsets:UIEdgeInsetsZero 就能将空白去掉.但是在iOS8中,设置<em>setSeparatorInsets:UIEdgeInsetsZero</em>就不起作用了,解决方法如下:在viewDidLoad 中加入以下代码</h4><p>`if ([self.discussTableView respondsToSelector:@selector(setSeparatorInset:)]) {</p>
 <pre><code>    [self.discussTableView setSeparatorInset:UIEdgeInsetsZero];
 
 }
