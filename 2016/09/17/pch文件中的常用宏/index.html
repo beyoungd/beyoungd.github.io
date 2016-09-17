@@ -1,0 +1,576 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="摘要:一些常用的全局设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pch文件中的常用宏">
+<meta property="og:url" content="http://beyoungd.github.io/2016/09/17/pch文件中的常用宏/index.html">
+<meta property="og:site_name" content="beyoungd的博客">
+<meta property="og:description" content="摘要:一些常用的全局设置">
+<meta property="og:updated_time" content="2016-09-17T03:02:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pch文件中的常用宏">
+<meta name="twitter:description" content="摘要:一些常用的全局设置">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '杨怀展'
+    }
+  };
+</script>
+
+  <title> pch文件中的常用宏 | beyoungd的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">beyoungd的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一天进步一点点</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                pch文件中的常用宏
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T10:58:20+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工作中的点滴/" itemprop="url" rel="index">
+                    <span itemprop="name">工作中的点滴</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>摘要:一些常用的全局设置<br><a id="more"></a><br>正文:</p>
+<h4 id="项目PCH文件中一些重用的宏"><a href="#项目PCH文件中一些重用的宏" class="headerlink" title="项目PCH文件中一些重用的宏"></a>项目PCH文件中一些重用的宏</h4><h5 id="HZConst-h"><a href="#HZConst-h" class="headerlink" title="HZConst.h"></a>HZConst.h</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">// 保证#ifdef 中的宏定义只会在 OC 的代码中被引用</span><br><span class="line">// 否则,一旦引入 C/C++ 的代码或者框架,就会出错</span><br><span class="line">#ifdef __OBJC__</span><br><span class="line">// 引入公共的头文件 例如: MJExstension</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 引入分类头文件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 自定义NSLog</span><br><span class="line">#ifdef DEBUG</span><br><span class="line">#define NSLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)</span><br><span class="line">#else</span><br><span class="line">#define NSLog(...)</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#define HZNotificationCenter [NSNotificationCenter defaultCenter]</span><br><span class="line">#define HZUserDefaults [NSUserDefaults standardUserDefaults]</span><br><span class="line">#define HZApplication [UIApplication sharedApplication]</span><br><span class="line">#define HZFileManager [NSFileManager defaultManager]</span><br><span class="line">#define HZDevice [UIDevice currentDevice]</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *  颜色</span><br><span class="line"> */</span><br><span class="line">#define HZBlackColor [UIColor blackColor]</span><br><span class="line">#define HZBlueColor [UIColor blueColor]</span><br><span class="line">#define HZRedColor [UIColor redColor]</span><br><span class="line">#define HZWhiteColor [UIColor whiteColor]</span><br><span class="line">#define HZGrayColor [UIColor grayColor]</span><br><span class="line">#define HZDarkGrayColor [UIColor darkGrayColor]</span><br><span class="line">#define HZLightGrayColor [UIColor lightGrayColor]</span><br><span class="line">#define HZGreenColor [UIColor greenColor]</span><br><span class="line">#define HZCyanColor [UIColor cyanColor]</span><br><span class="line">#define HZYellowColor [UIColor yellowColor]</span><br><span class="line">#define HZMagentaColor [UIColor magentaColor]</span><br><span class="line">#define HZOrangeColor [UIColor orangeColor]</span><br><span class="line">#define HZPurpleColor [UIColor purpleColor]</span><br><span class="line">#define HZBrownColor [UIColor brownColor]</span><br><span class="line">#define HZClearColor [UIColor clearColor]</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *  机型</span><br><span class="line"> */</span><br><span class="line">#define iPHone6Plus ([UIScreen mainScreen].bounds.size.height == 736) ? YES : NO</span><br><span class="line"></span><br><span class="line">#define iPHone6 ([UIScreen mainScreen].bounds.size.height == 667) ? YES : NO</span><br><span class="line"></span><br><span class="line">#define iPHone5 ([UIScreen mainScreen].bounds.size.height == 568) ? YES : NO</span><br><span class="line"></span><br><span class="line">#define iPHone4 ([UIScreen mainScreen].bounds.size.height == 480) ? YES : NO</span><br><span class="line"></span><br><span class="line">/** RGB颜色 */</span><br><span class="line">#define HZColor_RGB(r, g, b) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1.0]</span><br><span class="line"></span><br><span class="line">#define HZColor_RGBA(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a)]</span><br><span class="line"></span><br><span class="line">#define YPColor_RGBA_256(r, g, b, a) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(a) / 255.0]</span><br><span class="line"></span><br><span class="line">/** 随机色 */</span><br><span class="line">#define HZRandomColor_RGB HZColor_RGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))</span><br><span class="line">#define HZRandomColor_RGBA HZColor_RGBA_256(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/** 角度制转为弧度制 */</span><br><span class="line">#define HZAngle2Radian(angle) ((angle) / 180.0 * M_PI)</span><br><span class="line"></span><br><span class="line">/** 屏幕 */</span><br><span class="line">#define HZScreen [UIScreen mainScreen]</span><br><span class="line">/** 屏幕宽度 */</span><br><span class="line">#define HZScreenW [UIScreen mainScreen].bounds.size.width</span><br><span class="line">/** 屏幕高度 */</span><br><span class="line">#define HZScreenH [UIScreen mainScreen].bounds.size.height</span><br><span class="line">/** 屏幕bounds */</span><br><span class="line">#define HZScreenBounds [UIScreen mainScreen].bounds</span><br><span class="line">/** 屏幕伸缩度（Retina时值为2,非Retina值为1）*/</span><br><span class="line">#define HZScreenScale [UIScreen mainScreen].scale</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/** 系统状态栏高度 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppStatusBarHeight;</span><br><span class="line">/** 系统导航栏高度 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppNavigationBarHeight;</span><br><span class="line">/** 系统tabbar高度 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppTabBarHeight;</span><br><span class="line"></span><br><span class="line">/** 系统间距字段 8 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppPadding_8;</span><br><span class="line">/** 系统间距字段 12 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppPadding_12;</span><br><span class="line">/** 系统间距字段 16 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppPadding_16;</span><br><span class="line">/** 系统间距字段 20 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppPadding_20;</span><br><span class="line">/** 系统间距字段 24 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppPadding_24;</span><br><span class="line">/** 系统间距字段 28 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppPadding_28;</span><br><span class="line">/** 系统间距字段 32 */</span><br><span class="line">UIKIT_EXTERN CGFloat const kAppPadding_32;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//********************** Application常用字段Start *************************//</span><br><span class="line">/** App启动次数 */</span><br><span class="line">UIKIT_EXTERN NSString * const kAppLaunchTimes;</span><br><span class="line">/** App的Appstore访问地址 */</span><br><span class="line">UIKIT_EXTERN NSString * const kAppITunesURL;</span><br><span class="line"></span><br><span class="line">/** tabBar被选中的通知 */</span><br><span class="line">UIKIT_EXTERN NSString * const HZTabBarDidSelectNotification;</span><br><span class="line">//********************** Application常用字段End ***************************//</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//字符串是否为空</span><br><span class="line">#define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] &lt; 1 ? YES : NO )</span><br><span class="line">//数组是否为空</span><br><span class="line">#define kArrayIsEmpty(array) (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)</span><br><span class="line">//字典是否为空</span><br><span class="line">#define kDictIsEmpty(dic) (dic == nil || [dic isKindOfClass:[NSNull class]] || dic.allKeys == 0)</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<h4 id="HZConst-m"><a href="#HZConst-m" class="headerlink" title="HZConst.m"></a>HZConst.m</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/** 系统状态栏高度 */</span><br><span class="line">CGFloat const kAppStatusBarHeight = 20;</span><br><span class="line">/** 系统导航栏高度 */</span><br><span class="line">CGFloat const kAppNavigationBarHeight = 44;</span><br><span class="line">/** 系统tabbar高度 */</span><br><span class="line">CGFloat const kAppTabBarHeight = 49;</span><br><span class="line"></span><br><span class="line">/** 系统间距字段 8 */</span><br><span class="line">CGFloat const kAppPadding_8 = 8;</span><br><span class="line">/** 系统间距字段 12 */</span><br><span class="line">CGFloat const kAppPadding_12 = 12;</span><br><span class="line">/** 系统间距字段 16 */</span><br><span class="line">CGFloat const kAppPadding_16 = 16;</span><br><span class="line">/** 系统间距字段 20 */</span><br><span class="line">CGFloat const kAppPadding_20 = 20;</span><br><span class="line">/** 系统间距字段 24 */</span><br><span class="line">CGFloat const kAppPadding_24 = 24;</span><br><span class="line">/** 系统间距字段 28 */</span><br><span class="line">CGFloat const kAppPadding_28 = 28;</span><br><span class="line">/** 系统间距字段 32 */</span><br><span class="line">CGFloat const kAppPadding_32 = 32;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/** App启动次数 */</span><br><span class="line">NSString * const kAppLaunchTimes = @&quot;kAppLaunchTimes&quot;;</span><br><span class="line">/** App的Appstore访问地址 */</span><br><span class="line">NSString * const kAppITunesURL = @&quot;https://itunes.apple.com/cn/app/bi-li-bi-li-dong-hua-dan-mu/id736536022?mt=8&quot;;</span><br><span class="line"></span><br><span class="line">/** tabBar被选中的通知 */</span><br><span class="line">NSString * const HZTabBarDidSelectNotification = @&quot;HZTabBarDidSelectNotification&quot;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/16/程序中的一些全局设置/" rel="next" title="程序中的一些全局设置">
+                <i class="fa fa-chevron-left"></i> 程序中的一些全局设置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="beyoungd" />
+          <p class="site-author-name" itemprop="name">beyoungd</p>
+          <p class="site-description motion-element" itemprop="description">春风十里不如你</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目PCH文件中一些重用的宏"><span class="nav-number">1.</span> <span class="nav-text">项目PCH文件中一些重用的宏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HZConst-h"><span class="nav-number">1.1.</span> <span class="nav-text">HZConst.h</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HZConst-m"><span class="nav-number">2.</span> <span class="nav-text">HZConst.m</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">beyoungd</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
