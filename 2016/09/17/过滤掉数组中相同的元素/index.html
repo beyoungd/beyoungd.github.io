@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="-利用head请求测试超链接的有效性，是否可以访问," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="摘要:利用head请求测试超链接的有效性，是否可以访问">
+<meta name="description" content="摘要:过滤掉数组中相同的元素">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEAD请求">
-<meta property="og:url" content="http://beyoungd.github.io/2016/09/16/HEAD请求/index.html">
+<meta property="og:title" content="过滤掉数组中相同的元素">
+<meta property="og:url" content="http://beyoungd.github.io/2016/09/17/过滤掉数组中相同的元素/index.html">
 <meta property="og:site_name" content="beyoungd的博客">
-<meta property="og:description" content="摘要:利用head请求测试超链接的有效性，是否可以访问">
-<meta property="og:updated_time" content="2016-09-16T14:30:16.000Z">
+<meta property="og:description" content="摘要:过滤掉数组中相同的元素">
+<meta property="og:updated_time" content="2016-09-17T04:23:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEAD请求">
-<meta name="twitter:description" content="摘要:利用head请求测试超链接的有效性，是否可以访问">
+<meta name="twitter:title" content="过滤掉数组中相同的元素">
+<meta name="twitter:description" content="摘要:过滤掉数组中相同的元素">
 
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> HEAD请求 | beyoungd的博客 </title>
+  <title> 过滤掉数组中相同的元素 | beyoungd的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +231,7 @@
             
             
               
-                HEAD请求
+                过滤掉数组中相同的元素
               
             
           </h1>
@@ -243,8 +243,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T15:48:21+08:00" content="2016-09-16">
-              2016-09-16
+            <time itemprop="dateCreated" datetime="2016-09-17T12:19:57+08:00" content="2016-09-17">
+              2016-09-17
             </time>
           </span>
 
@@ -257,8 +257,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/工作中的点滴/" itemprop="url" rel="index">
-                    <span itemprop="name">工作中的点滴</span>
+                  <a href="/categories/常用分类/" itemprop="url" rel="index">
+                    <span itemprop="name">常用分类</span>
                   </a>
                 </span>
 
@@ -290,9 +290,9 @@
       
 
       
-        <p>摘要:利用head请求测试超链接的有效性，是否可以访问<br><a id="more"></a><br>正文:</p>
-<h3 id="它与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。"><a href="#它与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。" class="headerlink" title="它与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。"></a>它与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。</h3><p>利用这个方法，不必传输整个资源内容，就可以得到Request-URI所标识的资源的信息。该方法常用于测试超链接的有效性，是否可以访问，以及最近是否更新</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstring]];</span><br><span class="line">    [request setHTTPMethod:@&quot;HEAD&quot;];</span><br><span class="line">    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];</span><br><span class="line">    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</span><br><span class="line">        DLog(@&quot;%@&quot;,response);</span><br><span class="line">        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;</span><br><span class="line">        </span><br><span class="line">        NSLog(@&quot; http response : %zd&quot;,httpResponse.statusCode);</span><br><span class="line">        NSLog(@&quot;error %@&quot;,error);</span><br><span class="line">        if (error || httpResponse.statusCode &gt;= 400 ) &#123;</span><br><span class="line">            NSLog(@&quot;不可用&quot;);    </span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            NSLog(@&quot;可用&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">    [task resume];</span><br></pre></td></tr></table></figure>
+        <p>摘要:过滤掉数组中相同的元素<br><a id="more"></a><br>正文:利用NSMutableSet过滤掉数组中相同的元素</p>
+<h4 id="NSMutableArray-FilterElement-h"><a href="#NSMutableArray-FilterElement-h" class="headerlink" title="NSMutableArray+FilterElement.h"></a>NSMutableArray+FilterElement.h</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@interface NSMutableArray (FilterElement)</span><br><span class="line">/**</span><br><span class="line"> *   过滤掉相同的元素</span><br><span class="line"> *</span><br><span class="line"> *   @return 返回一个数组</span><br><span class="line"> */</span><br><span class="line">- (NSMutableArray*)filterTheSameElement;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h4 id="NSMutableArray-FilterElement-m"><a href="#NSMutableArray-FilterElement-m" class="headerlink" title="NSMutableArray+FilterElement.m"></a>NSMutableArray+FilterElement.m</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@implementation NSMutableArray (FilterElement)</span><br><span class="line">/**</span><br><span class="line"> *   过滤掉相同的元素</span><br><span class="line"> *</span><br><span class="line"> *   @return 返回一个数组</span><br><span class="line"> */</span><br><span class="line">- (NSMutableArray*)filterTheSameElement</span><br><span class="line">&#123;</span><br><span class="line">    NSMutableSet *set = [NSMutableSet set];</span><br><span class="line">    for (NSObject *obj in self) &#123;</span><br><span class="line">        [set addObject:obj];</span><br><span class="line">    &#125;</span><br><span class="line">    [self removeAllObjects];</span><br><span class="line">    for (NSObject *obj in set) &#123;</span><br><span class="line">        [self addObject:obj];</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -311,28 +311,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/利用head请求测试超链接的有效性，是否可以访问/" rel="tag">#-利用head请求测试超链接的有效性，是否可以访问</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/16/hello/" rel="next" title="hello">
-                <i class="fa fa-chevron-left"></i> hello
+              <a href="/2016/09/17/搜索功能/" rel="next" title="搜索功能">
+                <i class="fa fa-chevron-left"></i> 搜索功能
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/16/验证码按钮的实现/" rel="prev" title="利用定时器实现获取验证码按钮">
-                利用定时器实现获取验证码按钮 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -446,7 +436,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#它与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。"><span class="nav-number">1.</span> <span class="nav-text">它与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#NSMutableArray-FilterElement-h"><span class="nav-number">1.</span> <span class="nav-text">NSMutableArray+FilterElement.h</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NSMutableArray-FilterElement-m"><span class="nav-number">2.</span> <span class="nav-text">NSMutableArray+FilterElement.m</span></a></li></ol></div>
             
           </div>
         </section>
