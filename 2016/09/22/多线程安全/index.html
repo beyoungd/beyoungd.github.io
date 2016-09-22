@@ -86,13 +86,13 @@
 
 <meta name="description" content="摘要:一些常用的全局设置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程序中的一些全局设置">
-<meta property="og:url" content="http://beyoungd.github.io/2016/09/16/程序中的一些全局设置/index.html">
+<meta property="og:title" content="多线程安全">
+<meta property="og:url" content="http://beyoungd.github.io/2016/09/22/多线程安全/index.html">
 <meta property="og:site_name" content="beyoungd的博客">
 <meta property="og:description" content="摘要:一些常用的全局设置">
-<meta property="og:updated_time" content="2016-09-17T02:56:31.000Z">
+<meta property="og:updated_time" content="2016-09-22T13:04:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程序中的一些全局设置">
+<meta name="twitter:title" content="多线程安全">
 <meta name="twitter:description" content="摘要:一些常用的全局设置">
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> 程序中的一些全局设置 | beyoungd的博客 </title>
+  <title> 多线程安全 | beyoungd的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +231,7 @@
             
             
               
-                程序中的一些全局设置
+                多线程安全
               
             
           </h1>
@@ -243,8 +243,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T23:11:56+08:00" content="2016-09-16">
-              2016-09-16
+            <time itemprop="dateCreated" datetime="2016-09-22T20:33:47+08:00" content="2016-09-22">
+              2016-09-22
             </time>
           </span>
 
@@ -291,27 +291,54 @@
 
       
         <p>摘要:一些常用的全局设置<br><a id="more"></a><br>正文:</p>
+<h3 id="一-多线程安全隐患"><a href="#一-多线程安全隐患" class="headerlink" title="一. 多线程安全隐患"></a>一. 多线程安全隐患</h3><ul>
+<li><p>资源共享</p>
 <ul>
-<li>导航条上UIBarButtonItem颜色</li>
+<li>1块资源可呢会被多个线程共享，也就是多个线程可能会访问到一块资源</li>
+<li>比如多个线程访问同一个对象，同一个变量，同一个文件。</li>
+<li>当多线程访问同一块资源的时候，很容易引发数据错乱和数据安全问题</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="二-原子和非原子属性"><a href="#二-原子和非原子属性" class="headerlink" title="二. 原子和非原子属性"></a>二. 原子和非原子属性</h3><ul>
+<li><h4 id="OC-在定义属性的时候有nonatomic和atomic两种选择"><a href="#OC-在定义属性的时候有nonatomic和atomic两种选择" class="headerlink" title="OC 在定义属性的时候有nonatomic和atomic两种选择"></a>OC 在定义属性的时候有nonatomic和atomic两种选择</h4><ul>
+<li>atomic: 原子属性,为setter方法加锁</li>
+<li>noatomic: 非原子属性,不会为setter方法加锁</li>
+</ul>
+</li>
+<li><h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><ul>
+<li>atomic: 线程安全,需要消耗大量资源</li>
+<li>nonatomic：非线程安全，适合内存小的移动设备</li>
+</ul>
+</li>
+<li><h4 id="synchronized-与atomic"><a href="#synchronized-与atomic" class="headerlink" title="synchronized 与atomic"></a>synchronized 与atomic</h4><ul>
+<li>synchronized: 互斥锁</li>
+<li>atomic: 自旋锁</li>
+<li>共同点: 都能保证同一时刻只能有一个线程操作锁住的代码</li>
+<li>区别: <ul>
+<li>互斥锁(synchronize): 当上一个线程的任务没有执行完毕的时候,那么下一个线程会进入睡眠状态等待任务执行完毕,当上一个线程的任务执行完毕,下一个线程会自动唤醒然后执行任务.</li>
+<li>自旋锁(atomic): 当上一个线程的任务没有执行完毕的时候,那么下一个线程会一直等待,不会进入睡眠状态,当上一个线程的任务执行完毕,下一个线程会立即执行. 比较适合一些不耗时的操作.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="三-互斥锁"><a href="#三-互斥锁" class="headerlink" title="三.互斥锁"></a>三.互斥锁</h3><ul>
+<li><p>注意点:</p>
 <ul>
-<li>导航条的背景颜色</li>
+<li>如果多线程访问同一个资源，那么必须使用同一把锁才能锁住</li>
+<li>在开发中，尽量不要加锁，能在服务端做尽量在服务端做，如果必须要加锁，一定要记住，锁的范围不能太大，哪里有安全隐患就加在哪里。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[UINavigationBar appearance] setBarTintColor:RGB(37, 68, 126)];</span><br></pre></td></tr></table></figure>
 <ul>
-<li>统一设置导航条上面标题的颜色</li>
+<li>技巧: 因为必须使用同一把锁,开发中如果需要加锁,直接self即可.</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSDictionary *navbarTitleTextAttributes = @&#123;NSForegroundColorAttributeName:[UIColor whiteColor]&#125;;</span><br><span class="line">[[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>全局设置状态栏的字体颜色模式</li>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];</span><br></pre></td></tr></table></figure>
-<p>同时需要在info.plist文件中设置 <strong>View controller-based status bar appearance</strong> 对应值为<strong>NO</strong>.</p>
-<ul>
-<li>统一设置导航条返回按钮</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 重写方法</span><br><span class="line">- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated</span><br><span class="line">&#123;</span><br><span class="line">    if (self.childViewControllers.count) &#123; // 说明不是跟控制器</span><br><span class="line">        UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@&quot;ic_arrow_left_sm_white&quot;] style:UIBarButtonItemStylePlain target:self action:@selector(back)];</span><br><span class="line">        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];</span><br><span class="line">        negativeSpacer.width = -10;</span><br><span class="line">        viewController.navigationItem.leftBarButtonItems = @[  negativeSpacer, back];</span><br><span class="line">        // 隐藏底部bar</span><br><span class="line">        viewController.hidesBottomBarWhenPushed = YES;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [super pushViewController:viewController animated:animated];</span><br><span class="line">&#125;</span><br><span class="line">// 返回</span><br><span class="line">- (void)back</span><br><span class="line">&#123;</span><br><span class="line">    [self popViewControllerAnimated:YES];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@synchronized(self) &#123;</span><br><span class="line">        //线程1进来之后，锁住，2和3都再外面等待</span><br><span class="line">        //1、查询剩余的票数</span><br><span class="line">        NSUInteger count = self.totalCount;</span><br><span class="line">        //2、判断是否还有余票</span><br><span class="line">        //2.1卖票</span><br><span class="line">        //3 、提示客户，没有票了</span><br><span class="line">        if (count&gt;0) &#123;</span><br><span class="line">            [NSThread sleepForTimeInterval:0.1];</span><br><span class="line">            self.totalCount = count-1;</span><br><span class="line">            NSLog(@&quot;%@卖了一张票,还剩%zd票&quot;,[NSThread currentThread].name,self.totalCount);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            NSLog(@&quot;没票了&quot;);</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;//解锁</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/091fa0fff63c" target="_blank" rel="external">参考链接</a></p>
+
       
     </div>
 
@@ -335,17 +362,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/16/验证码按钮的实现/" rel="next" title="利用定时器实现获取验证码按钮">
-                <i class="fa fa-chevron-left"></i> 利用定时器实现获取验证码按钮
+              <a href="/2016/09/17/利用CLLocationManager进行定位/" rel="next" title="利用CLLocationManager进行定位">
+                <i class="fa fa-chevron-left"></i> 利用CLLocationManager进行定位
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/17/pch文件中的常用宏/" rel="prev" title="pch文件中的常用宏">
-                pch文件中的常用宏 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -459,7 +482,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-多线程安全隐患"><span class="nav-number">1.</span> <span class="nav-text">一. 多线程安全隐患</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-原子和非原子属性"><span class="nav-number">2.</span> <span class="nav-text">二. 原子和非原子属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OC-在定义属性的时候有nonatomic和atomic两种选择"><span class="nav-number">2.1.</span> <span class="nav-text">OC 在定义属性的时候有nonatomic和atomic两种选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对比"><span class="nav-number">2.2.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-与atomic"><span class="nav-number">2.3.</span> <span class="nav-text">synchronized 与atomic</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-互斥锁"><span class="nav-number">3.</span> <span class="nav-text">三.互斥锁</span></a></li></ol></div>
             
           </div>
         </section>
