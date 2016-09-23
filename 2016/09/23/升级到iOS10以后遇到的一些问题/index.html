@@ -90,10 +90,12 @@
 <meta property="og:url" content="http://beyoungd.github.io/2016/09/23/升级到iOS10以后遇到的一些问题/index.html">
 <meta property="og:site_name" content="beyoungd的博客">
 <meta property="og:description" content="摘要: 升级到iOS10以后遇到的一些问题">
-<meta property="og:updated_time" content="2016-09-23T07:16:20.000Z">
+<meta property="og:image" content="http://beyoungd.github.io/img/avoidLogBug.png">
+<meta property="og:updated_time" content="2016-09-23T07:21:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级到iOS10以后遇到的一些问题">
 <meta name="twitter:description" content="摘要: 升级到iOS10以后遇到的一些问题">
+<meta name="twitter:image" content="http://beyoungd.github.io/img/avoidLogBug.png">
 
 
 
@@ -292,7 +294,7 @@
       
         <p>摘要: 升级到iOS10以后遇到的一些问题<br><a id="more"></a><br>正文:</p>
 <h3 id="1-屏蔽杂乱无章的bug"><a href="#1-屏蔽杂乱无章的bug" class="headerlink" title="1. 屏蔽杂乱无章的bug"></a>1. 屏蔽杂乱无章的bug</h3><pre><code>Xcode8里面Edit Scheme -&gt; Run -&gt; Arguments,在Environment Variables 中 添加 OS_ACTIVITY_MODE ＝ Disable
-</code></pre><p>![]<br>(/Users/YHZ/blog/public/images/EEE86EBA-9764-4668-8384-845D21E3D574.png)</p>
+</code></pre><p><img src="/img/avoidLogBug.png" alt=""></p>
 <p><strong>如果写了之后还是打印log,请重新勾选对勾，就可以解决了</strong></p>
 <h3 id="2-权限以及先关设置"><a href="#2-权限以及先关设置" class="headerlink" title="2. 权限以及先关设置"></a>2. 权限以及先关设置</h3><p><strong>注意添加时,末尾不要有空格</strong><br>我们需要在info.plist文件中添加相应权限的说明,否则程序在iOS10上会出现崩溃。</p>
 <ul>
