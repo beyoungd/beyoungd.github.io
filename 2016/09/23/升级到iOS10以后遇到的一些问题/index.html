@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="-获取验证码按钮," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,16 +84,18 @@
 
 
 
-<meta name="description" content="摘要:利用NSTimer实现获取验证码按钮,可以直接拿来用">
+<meta name="description" content="摘要: 升级到iOS10以后遇到的一些问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用定时器实现获取验证码按钮">
-<meta property="og:url" content="http://beyoungd.github.io/2016/09/16/验证码按钮的实现/index.html">
+<meta property="og:title" content="升级到iOS10以后遇到的一些问题">
+<meta property="og:url" content="http://beyoungd.github.io/2016/09/23/升级到iOS10以后遇到的一些问题/index.html">
 <meta property="og:site_name" content="beyoungd的博客">
-<meta property="og:description" content="摘要:利用NSTimer实现获取验证码按钮,可以直接拿来用">
-<meta property="og:updated_time" content="2016-09-16T13:26:39.000Z">
+<meta property="og:description" content="摘要: 升级到iOS10以后遇到的一些问题">
+<meta property="og:image" content="http://beyoungd.github.io/Users/YHZ/blog/public/uploads/EEE86EBA-9764-4668-8384-845D21E3D574.png">
+<meta property="og:updated_time" content="2016-09-23T07:09:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用定时器实现获取验证码按钮">
-<meta name="twitter:description" content="摘要:利用NSTimer实现获取验证码按钮,可以直接拿来用">
+<meta name="twitter:title" content="升级到iOS10以后遇到的一些问题">
+<meta name="twitter:description" content="摘要: 升级到iOS10以后遇到的一些问题">
+<meta name="twitter:image" content="http://beyoungd.github.io/Users/YHZ/blog/public/uploads/EEE86EBA-9764-4668-8384-845D21E3D574.png">
 
 
 
@@ -111,7 +113,7 @@
   };
 </script>
 
-  <title> 利用定时器实现获取验证码按钮 | beyoungd的博客 </title>
+  <title> 升级到iOS10以后遇到的一些问题 | beyoungd的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +233,7 @@
             
             
               
-                利用定时器实现获取验证码按钮
+                升级到iOS10以后遇到的一些问题
               
             
           </h1>
@@ -243,8 +245,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T18:45:16+08:00" content="2016-09-16">
-              2016-09-16
+            <time itemprop="dateCreated" datetime="2016-09-23T11:12:37+08:00" content="2016-09-23">
+              2016-09-23
             </time>
           </span>
 
@@ -290,9 +292,27 @@
       
 
       
-        <p>摘要:利用NSTimer实现获取验证码按钮,可以直接拿来用<br><a id="more"></a><br>正文:</p>
-<h3 id="点击按钮所触发的事件对应的代码"><a href="#点击按钮所触发的事件对应的代码" class="headerlink" title="点击按钮所触发的事件对应的代码:"></a>点击按钮所触发的事件对应的代码:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-(void)getCodeSuccess</span><br><span class="line">&#123;</span><br><span class="line">    self.codeButton.enabled = NO;</span><br><span class="line">    self.number = 59;</span><br><span class="line">    self.timmer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(changeGetCodeButtonTitle) userInfo:nil repeats:YES];</span><br><span class="line">    [[NSRunLoop currentRunLoop] addTimer:self.timmer forMode:NSRunLoopCommonModes];</span><br><span class="line">    [self.timmer fire];</span><br><span class="line">//    self.touched = NO;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="改变按钮标题"><a href="#改变按钮标题" class="headerlink" title="改变按钮标题"></a>改变按钮标题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (void)changeGetCodeButtonTitle</span><br><span class="line">&#123;</span><br><span class="line">    self.codeButton.titleLabel.text = [NSString stringWithFormat:@&quot;%zd秒后重试&quot;,(self.number)];</span><br><span class="line">    [self.codeButton setTitle:[NSString stringWithFormat:@&quot;%zd秒后重试&quot;,(self.number)] forState:UIControlStateDisabled];</span><br><span class="line">    self.number--;</span><br><span class="line">    if (self.number == 0) &#123;</span><br><span class="line">        [self.timmer invalidate];</span><br><span class="line">        self.timmer = nil;</span><br><span class="line">        [self.codeButton setTitle:@&quot;重新获取&quot; forState:UIControlStateNormal];</span><br><span class="line">        self.codeButton.enabled = YES;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>摘要: 升级到iOS10以后遇到的一些问题<br><a id="more"></a><br>正文:</p>
+<h3 id="1-屏蔽杂乱无章的bug"><a href="#1-屏蔽杂乱无章的bug" class="headerlink" title="1. 屏蔽杂乱无章的bug"></a>1. 屏蔽杂乱无章的bug</h3><pre><code>Xcode8里面Edit Scheme -&gt; Run -&gt; Arguments,在Environment Variables 中 添加 OS_ACTIVITY_MODE ＝ Disable
+</code></pre><p><img src="/Users/YHZ/blog/public/uploads/EEE86EBA-9764-4668-8384-845D21E3D574.png" alt=""></p>
+<p><strong>如果写了之后还是打印log,请重新勾选对勾，就可以解决了</strong></p>
+<h3 id="2-权限以及先关设置"><a href="#2-权限以及先关设置" class="headerlink" title="2. 权限以及先关设置"></a>2. 权限以及先关设置</h3><p><strong>注意添加时,末尾不要有空格</strong><br>我们需要在info.plist文件中添加相应权限的说明,否则程序在iOS10上会出现崩溃。</p>
+<ul>
+<li>相机权限： Privacy - Camera Usage Description 是否允许此App使用你的相机？</li>
+<li>相册权限： Privacy - Photo Library Usage Description 是否允许此App访问你的媒体资料库？</li>
+<li>通讯录权限： Privacy - Contacts Usage Description 是否允许此App访问你的通讯录？</li>
+<li>蓝牙权限：Privacy - Bluetooth Peripheral Usage Description 是否许允此App使用蓝牙？</li>
+<li>语音转文字权限：Privacy - Speech Recognition Usage Description 是否允许此App使用语音识别？</li>
+<li>日历权限：Privacy - Calendars Usage Description 是否允许此App使用日历？</li>
+<li>定位权限：Privacy - Location When In Use Usage Description 我们需要通过您的地理位置信息获取您周边的相关数据</li>
+<li>定位权限: Privacy - Location Always Usage Description 我们需要通过您的地理位置信息获取您周边的相关数据定位的需要这么写，防止上架被拒。</li>
+</ul>
+<h3 id="3-字体变大-原有frame需要适配"><a href="#3-字体变大-原有frame需要适配" class="headerlink" title="3. 字体变大,原有frame需要适配"></a>3. 字体变大,原有frame需要适配</h3><p>程序内原来2个字的宽度是24,现在两个字的宽度为27,暂时没有好的解决办法.</p>
+<h3 id="4-通知发生重大变化"><a href="#4-通知发生重大变化" class="headerlink" title="4. 通知发生重大变化"></a>4. 通知发生重大变化</h3><p><strong>苹果这次对推送做了很大的变化，希望大家多查阅查阅，处理推送的代理方法也变化了。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 推送的代理</span><br><span class="line">[&lt;UNUserNotificationDeleagate&gt;]</span><br></pre></td></tr></table></figure>
+<p>iOS10收到通知不再是在<br>[application: didReceiveRemoteNotification:]方法去处理， iOS10推出新的代理方法，接收和处理各类通知（本地或者远程）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler </span><br><span class="line">&#123; </span><br><span class="line">//应用在前台收到通知 </span><br><span class="line">NSLog(@&quot;========%@&quot;, notification);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler </span><br><span class="line">&#123; </span><br><span class="line">	//点击通知进入应用 </span><br><span class="line">	NSLog(@&quot;response:%@&quot;, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -311,28 +331,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/获取验证码按钮/" rel="tag">#-获取验证码按钮</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/16/HEAD请求/" rel="next" title="HEAD请求">
-                <i class="fa fa-chevron-left"></i> HEAD请求
+              <a href="/2016/09/22/多线程安全/" rel="next" title="多线程安全">
+                <i class="fa fa-chevron-left"></i> 多线程安全
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/16/程序中的一些全局设置/" rel="prev" title="程序中的一些全局设置">
-                程序中的一些全局设置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -446,7 +456,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#点击按钮所触发的事件对应的代码"><span class="nav-number">1.</span> <span class="nav-text">点击按钮所触发的事件对应的代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变按钮标题"><span class="nav-number">2.</span> <span class="nav-text">改变按钮标题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-屏蔽杂乱无章的bug"><span class="nav-number">1.</span> <span class="nav-text">1. 屏蔽杂乱无章的bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-权限以及先关设置"><span class="nav-number">2.</span> <span class="nav-text">2. 权限以及先关设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-字体变大-原有frame需要适配"><span class="nav-number">3.</span> <span class="nav-text">3. 字体变大,原有frame需要适配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-通知发生重大变化"><span class="nav-number">4.</span> <span class="nav-text">4. 通知发生重大变化</span></a></li></ol></div>
             
           </div>
         </section>
