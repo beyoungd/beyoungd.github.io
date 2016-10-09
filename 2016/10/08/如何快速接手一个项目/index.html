@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="-hello," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="摘要:">
+<meta name="description" content="摘要: 利用一个分类快速熟悉一个项目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello">
-<meta property="og:url" content="http://beyoungd.github.io/2016/09/16/hello/index.html">
+<meta property="og:title" content="如何快速接手一个项目">
+<meta property="og:url" content="http://beyoungd.github.io/2016/10/08/如何快速接手一个项目/index.html">
 <meta property="og:site_name" content="beyoungd的博客">
-<meta property="og:description" content="摘要:">
-<meta property="og:updated_time" content="2016-09-16T13:22:26.000Z">
+<meta property="og:description" content="摘要: 利用一个分类快速熟悉一个项目">
+<meta property="og:updated_time" content="2016-10-08T00:50:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello">
-<meta name="twitter:description" content="摘要:">
+<meta name="twitter:title" content="如何快速接手一个项目">
+<meta name="twitter:description" content="摘要: 利用一个分类快速熟悉一个项目">
 
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> hello | beyoungd的博客 </title>
+  <title> 如何快速接手一个项目 | beyoungd的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +231,7 @@
             
             
               
-                hello
+                如何快速接手一个项目
               
             
           </h1>
@@ -243,8 +243,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T15:10:15+08:00" content="2016-09-16">
-              2016-09-16
+            <time itemprop="dateCreated" datetime="2016-10-08T08:42:44+08:00" content="2016-10-08">
+              2016-10-08
             </time>
           </span>
 
@@ -257,8 +257,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/日志/" itemprop="url" rel="index">
-                    <span itemprop="name">日志</span>
+                  <a href="/categories/分类/" itemprop="url" rel="index">
+                    <span itemprop="name">分类</span>
                   </a>
                 </span>
 
@@ -290,7 +290,24 @@
       
 
       
-        <p>摘要:<br><a id="more"></a><br>正文:我们都是好孩子!</p>
+        <p>摘要: 利用一个分类快速熟悉一个项目<br><a id="more"></a><br>正文:</p>
+<h3 id="利用一个分类快速熟悉一个项目"><a href="#利用一个分类快速熟悉一个项目" class="headerlink" title="利用一个分类快速熟悉一个项目"></a>利用一个分类快速熟悉一个项目</h3><p>这是什么鬼？程序怎么运行的？那个类是干嘛用的？为什么运行到了这里，还有，文件怎么找？要疯掉了。。。</p>
+<p>有了此神器，程序的运行一清二楚，简直出门旅行，居家必备之良药</p>
+<p><a href="https://github.com/RuiAAPeres/UIViewController-Swizzled" target="_blank" rel="external">下载链接</a></p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>这个能帮你管理你的应用,当你正在做复杂的行为以及刚接手一个工程的时候这个会变得特别好用, 使用这个 category 能看到你现在所在的UIViewController，还有展示你进入的层次。</p>
+<h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><ul>
+<li>要么直接拖入，要么用cocoapods。</li>
+<li>需要导入链接库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libobjc.dylib</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后导入头文件：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;UIViewController+Swizzled.h&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在AppDelegate中，你需要在方法- (BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions方法里面加入SWIZZ_IT 开启。如果因为什么原因你想要停止，只需要添加UN_SWIZZ_IT </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    SWIZZ_IT;</span><br><span class="line">    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</span><br><span class="line">    [self.window makeKeyAndVisible];</span><br><span class="line"></span><br><span class="line">    // Your code...</span><br><span class="line"></span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -310,27 +327,21 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/hello/" rel="tag">#-hello</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/07/关于tableView的分割线问题/" rel="next" title="关于tableView的问题">
-                <i class="fa fa-chevron-left"></i> 关于tableView的问题
+              <a href="/2016/09/26/空白页的展示/" rel="next" title="空白页的展示">
+                <i class="fa fa-chevron-left"></i> 空白页的展示
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/16/HEAD请求/" rel="prev" title="HEAD请求">
-                HEAD请求 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/09/bug集锦/" rel="prev" title="bug集锦">
+                bug集锦 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -445,7 +456,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用一个分类快速熟悉一个项目"><span class="nav-number">1.</span> <span class="nav-text">利用一个分类快速熟悉一个项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a></li></ol></div>
             
           </div>
         </section>
